@@ -1,0 +1,27 @@
+
+# Spring properties
+spring:
+  application:
+     name: edge-service  # Service registers under this name
+
+
+zuul:
+  ignoredServices: '*'
+  routes:
+    greetings:
+      path: /greeting/**
+      serviceId: GREETING-SERVICE
+      stripPrefix: false
+      #url: http://localhost:2222/greeting/
+
+# Discovery Server Access
+eureka:
+  client:
+    registerWithEureka: false
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
+
+
+server:
+  port: 8080   # HTTP (Tomcat) port
+
